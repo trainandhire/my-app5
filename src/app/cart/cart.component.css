@@ -1,0 +1,10 @@
+table{
+    /* margin: 5px; */
+}
+
+button,input{
+    margin: 10px;
+}
+.parent{
+    display: flex;
+}

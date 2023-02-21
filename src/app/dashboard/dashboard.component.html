@@ -1,0 +1,17 @@
+<div class="parent">
+    <aside class="left">
+        <h4 routerLink="home">Home</h4>
+        <h4 routerLink="data-binding">Data Binding</h4>
+        <h4 routerLink="calculator">Calculator</h4>
+        <h4 routerLink="directives">Directives</h4>
+        <h4 routerLink="cart">cart</h4>
+        <h4 routerLink="phone">phone</h4>
+        <h4 routerLink="vehicle">Vehicle</h4>
+        <h4 routerLink="create-vehicle">create vehicle</h4>
+        <h4 routerLink="create-user">create user</h4>
+        <button class="logout" (click)="logout()">logout</button>
+    </aside>
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>

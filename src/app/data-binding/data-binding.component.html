@@ -1,0 +1,159 @@
+
+
+<h1>My name is {{name}}</h1>
+<h1>My age is {{age}}</h1>
+<h1>Is from india: {{isIndian}}</h1>
+
+
+<button (click)="submit()">submit</button>
+<input type="text" (keypress)="filter()">
+<button (mouseenter)="cancel()">cancel</button>
+
+
+<input type="number" [(ngModel)]="phone">
+<h1>{{phone}}</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Funtion:
+--------
+Function represents set of statements that can reuse. 
+
+
+  strucrue:
+  --------- 
+
+      function sum(a,b){
+        return a+b;
+      }
+
+      console.log( sum(2,3) );
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Data Binding:
+-------------
+
+  Exchanging data between class and template
+
+  1) interpolation
+  2) event binding
+  3) two-way binding
+
+  1) interpolation (ts->html)
+  ----------------
+    Sending data from class to template.
+
+
+    typescript variable structure:
+    ------------------------------ 
+
+  2) Event Binding: (html -> ts)
+     ------------------ -->
+
+  <!-- 3) Two way data binding:
+    ----------------------
+
+      1) import forms module in app module imports array.
+
+      2) use ngModel -->
+
+
+    <!-- Directives:
+    -----------
+
+      Useful to alter the DOM. (Document Object Model)
+
+      Three types of directies in Angular
+      
+        1) Structural Directives
+        2) Attribute Directives
+        3) Component Directives
+
+
+        1) Structural Directives: alters the DOM Structure.
+          -----------------------
+
+          *ngFor: Iteratively add elements to DOM.
+          -------
+
+            <tr *ngFor="let user of users"></tr>
+
+          *ngIf: Conditionally show or hide the element.
+          ------
+
+            <h1 *ngIf="______"></h1>
+        
+
+        2) Attribute Directives: alters attribute value dynamically
+           ---------------------
+
+           ngStyle: alters css property value dynamically
+           --------
+
+            <td [ngStyle]="{ 'color': student.marks>=35?'green':'red' }"></td>
+
+          ngClass: alters css class dynamically
+          -------- 
+
+            <td [ngClass]="{ 'className':condition, 'className':condition }" ></td>
+
+        3) Component Directives:
+           ---------------------
+
+            In angular all components are directives.
+            Directives are superset, components are subset.
+ -->
+
+
+      <!-- Pipes:
+      ------
+
+        Pipes are useful to transform data from one format to another format.
+        
+        Symbol:  |
+
+        Ex: uppercase
+            lowercase
+            json
+            date
+             -->
+
+
+
+
+
+

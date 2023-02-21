@@ -1,0 +1,213 @@
+
+<h1>Calculator</h1>
+
+<label>Number 1:</label>
+<input type="number" [(ngModel)]="number1">
+<br>
+<label>Number 2:</label>
+<input type="number" [(ngModel)]="number2">
+
+<br>
+
+<button (click)="sum()">sum</button>
+<button (click)="sub()">sub</button>
+
+<h1>Result is {{ result }}</h1>
+
+API Integration / HTTP:
+-----------------------
+
+    client server architecture:
+    ---------------------------
+
+    Request methods and resonse codes:
+    ----------------------------------
+
+    All possible api calls:
+    -----------------------
+    1) all        get        get(url)
+    2) specific   get        get(url/id)
+    3) filter     get        get(url?filter=Kia)
+    4) sorting    get        get(url?sortBy=_____ & order=_____)
+    5) pagination get        get(url?limit=10&page=1)
+
+    6) create     post       post(url,data)
+
+    7) update     put        put(url/id, data)
+
+    8) delete     delete     delete(url/id)
+
+
+RXJS:
+-----
+
+    Reactive extension for Java Script.
+
+    Useful to write async code in angular.
+
+    Featers:
+    --------
+        1) promises
+        2) observables
+        3) subjects
+
+           Promise                                  Observable
+          ---------                               --------------
+    1) Emits single callback                1) Emits multiple callbacks
+
+    2) Promise exeutes automatically        2) Executes when ever we subscribe(Lazy)
+
+    3) Cannot stop inbetween                3) We can stop inbetween using unsubscribe method
+
+    4) Less rxjs operator support           4) More Rxjs operator support
+
+
+        Observable                                   subject
+        ----------                                 ------------
+    1) unicast                               1) Multicast
+
+    2) Does not maintain state               2) Maintains state
+
+
+    Data Flow:
+    ----------
+
+
+        HTML             TS            SERVICE            API 
+
+
+    API Integration:
+    ----------------
+
+    1) Import HttpClientModule in appModule.
+
+    2) Inject HttpClient servie in VehicleService
+
+    3) Write a method to hit api using get,post,put,delete.
+
+    4) Api will return objservable of data
+       -> subscribe in ts file and store data in variable.
+
+    5) Loop over data and form table in HTML.
+ 
+
+Forms:
+------
+    There are two types of form in Angular
+
+        1) Template driven forms
+        2) Reactive forms
+
+    Why Reactive forms:
+    -------------------
+
+        1) Reactive froms are model driven
+        2) Provides more features like touched, pristine, dirty, valid, erorrs, custom validators.
+
+    Reactive Form Features:
+    -----------------------
+        1) FormGroup
+        2) Nested form group
+        3) FormArray
+        4) Dynamic Forms
+        5) FormValidations
+        6) Custom Validators
+
+        1) FormGroup Implementation:
+        --------------------------
+            1) Import ReactiveFormsModule in appModule.
+            2) Create form in HTML.
+            3) Create formGroup in TS.
+            4) Map the controls.
+            5) console the form value in submit method.
+
+        
+        2) Nested formGroup Implementation
+           --------------------------------
+           
+        3) FormArray Implementation:
+           -------------------------
+           1) Create formarray in form group.
+           2) Create getter method to access formArray.
+           3) Create add method to push fromGroups into fromArray.
+           4) Map the formArray, fromGroup, formControl in html with loop.
+           5) Delete the formGroup with removeAt method.
+
+        
+        5) FormValidations:
+           ----------------
+
+            ts:
+            ---
+
+                age: new FormControl("",[Validators.requried, Validators.max(100)])
+
+            html:
+            -----
+                <!-- <div *ngIf="_______?.touched && ______?.invalid">
+
+                    <p *ngIf="______?.errors?.['reqruied']">Age is required</p>
+                    <p *ngIf="______?.errors?.['max']">Age max 100 only</p>
+
+                </div> -->
+
+                1) FormGroup ->           userForm.get('age')
+                2) NestedFormGroup ->     userForm.get('address')?.get('pin')
+                3) FormArray ->           cardsFormArray.controls[i].get('cvv')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Navigation form HTML:
+---------------------
+
+    <button routerLink="/dashboard"></button>
+
+Navigation from TS:
+-------------------
+
+    constructor(private _router:Router){}
+
+    this._router.navigateByUrl("/dashboard"); -->
+<!-- 
+Angular communications:
+-----------------------
+
+    1) Page communication
+    2) Component communication
+    3) Module Communication
+
+
+    1) Page Communication:
+      --------------------
+
+        create param in path:
+        ---------------------
+
+            {path:'vehicle-details/:id', ...}
+
+        Set id in path param:
+        ---------------------
+
+            this.router.navigateByUrl("/dashboard/vehicle-details/"+id);
+
+        Get id from path:
+        -----------------
+
+            this._activatedRoute.params.subscribe(
+                (data:any)=>{
+                    alert(data.id)
+                }
+            )
+             -->

@@ -1,0 +1,290 @@
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Routing:
+--------
+
+    Angular is a SPA, Routing is helpful to change the view
+
+
+    Implementation:
+    ---------------
+
+    1) configure the path in app-routing.module.ts
+
+        {path:'login',component: LoginComponent}
+
+    2) mention router outlet tag in app.component.html
+
+        <router-outlet></router-outlet> -->
+
+<!-- 
+    Types of Routes:
+    ---------------
+
+        1) General Route:
+        -----------------
+
+            {path:'login',component: LoginComponent}
+
+        2) Empty Route:
+        ---------------
+
+            {path:'', component: LoginComponent}
+
+        3) Wildcard Route/Fallback Route:
+        ----------------------------------
+
+            {path:'**',component:PageNotFoundComponent}
+
+        4) Children Route:
+        ------------------
+
+            {path:'dashboard', component: DashboardComponent, children:[
+                {path:'home', component:HomeComponent}
+            ]}
+
+
+            ***) need to give router outlet in dashboard right div. -->
+
+<!-- 
+Services:
+---------
+
+    When should use service:
+    ------------------------
+    1) To write logics which are not relataed to view
+    2) To keep logic, that is requireed across multiple components.
+
+    Implementation:
+    ---------------
+    1) create service
+
+        ng g s phone
+
+    2) inject service in componnet constructor
+
+        constructor(private _phoneService:PhoneService){}
+
+    Frontend Application Data flow:
+    -------------------------------
+
+
+
+
+ -->
+
+
+ <!-- Module:
+ -------
+    Module is a container for components,directives,pripes and services. -->
+
+
+<!-- Stuctures:
+---------
+
+1) Variable structure
+   ------------------
+
+   public age:number = 20;
+
+   Varible naming rules:
+   ---------------------
+   1) Variable names should be in camel case.
+
+        firstname, first_name, FistName
+
+        firstName
+
+   2) We cannot give spaces in between.
+   
+        first names
+
+        firstName
+
+    3) Boolean varaible names should start with is
+
+        indian, free
+
+        isIndian, isFree
+
+    4) Variable name should be descriptive.
+
+        fn, ln
+
+        firstName, lastName
+
+    5) service variable name should start with underscore
+
+        private _phoneService:PhoneService
+
+    6) class names should be in camel case
+       and also first letter in capital
+
+        HomeComponent
+        CartComponent
+        PhoneService
+
+2) Component structure:
+   -------------------
+
+    contains 4 files
+
+        app.component.html
+                     .css
+                     .ts
+                     .spec.ts (unit testing file)
+
+
+        app.component.ts structure:
+        ---------------------------
+        1) import statements
+        2) @component decorator
+
+            selector -> tag name
+            templateUrl -> html file path
+            styleUrls -> css files array
+
+        3) class
+
+            -> variables
+            -> constructor
+            -> life cycle hooks
+            -> custom methods
+
+3) Module structure:
+ ------------------
+
+    1) import statements
+    2) NgModule decorator
+
+        -> declarations   (components,pipes,directives)
+        -> imports        (dependency modules)
+        -> exports        (components,pipes,directives)
+        -> providers      (services)
+        -> bootstrap      (initial load component)
+
+    3) class
+
+
+
+Angular CLI:  (command line interface)
+------------
+
+    Why:
+    ----
+    1) To create project  ( ng new ___ )
+    2) To create boilerplate code for components,services,modules,pipes etc.
+
+            ng generate component ____
+
+            ng g c ____
+            ng g s ____
+            ng g m ____
+            ng g p ____
+            ng g d ____
+            ng g g ____
+
+    3) For testing and linting (ng test)
+                                ng lint
+
+    4) To bundle the application for deployment. (ng build)
+
+
+    Why bundling:
+    -------------
+    1) To decrease application code size
+    2) Browser has the limitation that can download only 90+ files.
+
+    Transpiling:
+    ------------
+    converting typescript in to javscript
+
+    Angular bundles:
+    ----------------
+    1) main.js       (total application code)
+    2) inline.js     (webpack code)
+    3) polyfills.js  (multiple browser support)
+    4) vendor.js     (third party packages)
+    5) styles.css    (total css code)
+
+    Bundle optimization techniques:
+    ------------------------------
+    1) Minification: Removing newline and tab spaces
+       -------------
+
+       <div>
+            <h1>Hello</h1>
+       </div>
+
+       <div><h1>Hellow</h1></div>
+
+    2) Uglification: Decreasing variable and function name lengths
+       -------------
+
+       isFreeDelivery    priceLowToHigh()
+ 
+       a1                a2()
+
+    3) Tree Shaking: Removing unused components,pipes,directives, services.
+       -------------
+
+    4) AOT compilation instead of JIT compilation.
+
+       AOT: Ahead of time
+       JIT: Just in time
+
+       -> AOT compiles the code while bundling the packages
+          So no need to add compiler in final bundles -->
+
+<!-- 
+Authentication:
+---------------
+1) Collect email, password with reactive form.
+2) Do API call with post method.
+3) If valid, api will return taken,
+   else api will reutrn error.
+
+4) When login success
+
+    store token in browser memory.
+    navigate to dashboard.
+
+5) When logout
+
+    remove token from browser.
+    navigate to login page.
+
+
+
+Authentication Guard:
+---------------------
+
+1) Create
+  -------
+    ng g g authentication
+
+2) implement:
+ ------------
+    if( sessionStorage.getItem("my-app-token") ){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+3) apply:
+  -------
+  {path:'dashboard', canActivate:[AuthenticationGuard]} -->

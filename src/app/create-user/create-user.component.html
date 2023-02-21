@@ -1,0 +1,120 @@
+<h1>Create User Form</h1>
+
+<form [formGroup]="userForm">
+
+    <label for="">name:</label>
+    <input type="text" formControlName="name">
+    <div class="text-danger" *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+        <p *ngIf="userForm.get('name')?.errors?.['required']">Name is required</p>
+        <p *ngIf="userForm.get('name')?.errors?.['minlength']">Name should be min 3 chars</p>
+        <p *ngIf="userForm.get('name')?.errors?.['maxlength']">Name should be max 10 chars</p>
+    </div>    
+    <br>
+
+    <label for="">age:</label>
+    <input type="number" formControlName="age">
+    <div class="text-danger" *ngIf="userForm.get('age')?.touched && userForm.get('age')?.invalid">
+        <p *ngIf="userForm.get('age')?.errors?.['required']">Age is required</p>
+        <p *ngIf="userForm.get('age')?.errors?.['min']">min 0 years</p>
+        <p *ngIf="userForm.get('age')?.errors?.['max']">max 100 years</p>
+    </div> 
+    <br>
+
+    <label for="">phone:</label>
+    <input type="text" formControlName="phone">
+    <br>
+
+    <label for="">email:</label>
+    <input type="text" formControlName="email">
+    <div class="text-danger" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+        <p *ngIf="userForm.get('email')?.errors?.['required']">email is required</p>
+        <p *ngIf="userForm.get('email')?.errors?.['email']">invalid email format</p>
+    </div> 
+    <br>
+
+    <div formGroupName="address">
+        <label for="">state:</label>
+        <input type="text" formControlName="state">
+        <div class="text-danger" *ngIf="userForm.get('address')?.get('state')?.touched && userForm.get('address')?.get('state')?.invalid">
+            <p *ngIf="userForm.get('address')?.get('state')?.errors?.['required']">state is required</p>
+        </div> 
+        <br>
+
+        <label for="">pin:</label>
+        <input type="number" formControlName="pin">
+        <br>
+    </div>
+
+    <button (click)="add()">Add Card</button><br>
+
+    <div formArrayName="cards">
+        <div *ngFor="let card of cardsFormArray.controls;let i=index">
+            <div formGroupName="{{i}}">
+ 
+                <label for="">number:</label>
+                <input type="number" formControlName="number">
+                <div class="text-danger" *ngIf="cardsFormArray.controls[i]?.get('number')?.touched && cardsFormArray.controls[i]?.get('number')?.invalid">
+                    <p *ngIf="cardsFormArray.controls[i]?.get('number')?.errors?.['required']">Card numer is required</p>
+                </div>
+                <br>
+
+                <label for="">expiry:</label>
+                <input type="month" formControlName="expiry">
+                <br>
+
+                <label for="">cvv:</label>
+                <input type="number" formControlName="cvv">
+                <br>
+
+                <button class="btn btn-danger" (click)="delete(i)">delete</button>
+
+                <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <label for="">Type:</label>
+    <label for="">DayScholor</label>
+    <input type="radio" name="type" formControlName="type" value="dayScholor">
+    <label for="">Residential</label>
+    <input type="radio" name="type" formControlName="type" value="residential">
+    <br>
+
+    <div *ngIf="userForm.get('type')?.value == 'dayScholor' ">
+        <label for="">BusFee:</label>
+        <input type="number" formControlName="busFee">
+        <br>
+    </div>
+
+    <div *ngIf="userForm.get('type')?.value == 'residential' ">
+        <label for="">HostelFee:</label>
+        <input type="number" formControlName="hostelFee">
+        <br>    
+    </div>
+
+    <button [disabled]="userForm.invalid" class="btn btn-success" (click)="submit()">submit</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <p>touched:{{userForm.get('name')?.touched}}</p>
+    <p>dirty:{{userForm.get('name')?.dirty}}</p>
+    <p>invalid:{{userForm.get('name')?.invalid}}</p>
+
+    <pre>value: {{userForm.get('name')?.value}}</pre>
+    <pre>errors: {{userForm.get('name')?.errors | json}}</pre> --> -->

@@ -1,0 +1,21 @@
+.product{
+    width: 200px;
+    height: 200px;
+    border: 2px solid red;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    background-color: antiquewhite;
+}
+
+.pass{
+    background-color: green;
+    color: white;
+    border: 2px solid yellow;
+}
+
+.fail{
+    background-color: red;
+    color: white;
+    border: 2px solid blue;
+}
