@@ -211,3 +211,79 @@ Angular communications:
                 }
             )
              -->
+
+    <!-- 2) Component Communication:
+       ------------------------
+
+             1) parent to child
+             2) child to parent
+             3) sibling
+
+        <button [disabled]="true" (click)="submit()"></button>
+
+
+        1) parent to child:
+           ----------------
+
+           1) Create @Input() variable in child
+
+                @Input() rating:number = 0;
+
+           2) Pass data at child tag
+
+                <app-child [rating]="2"></app-child>
+
+
+        2) child to parent:
+           ----------------
+
+             1) Create event in child
+
+                public bEvent:EventEmitter<any> = new EventEmitter();
+
+            2) Emit event from child
+
+                this.bEvent.emit(10);
+
+            3) Catch event in parent
+
+                <app-child (bEvent)="catch($event)" ></app-child>
+
+
+
+
+
+
+
+
+
+
+
+ -->
+
+
+
+
+<!-- Git setup:
+----------
+
+        1) Link laptop with github webiste
+
+            git config --global user.name "XXXX"
+            git config --global user.email "XXXX"
+
+
+        2) Link project folder with github repository.
+
+            git init
+            git remote add origin URLXXX
+
+        3) process - code sync
+
+             git add .
+             git commit -m "XXXX"
+             git push -->
+            
+
+
+
