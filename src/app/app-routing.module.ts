@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutCeoComponent } from './aboutus/about-ceo/about-ceo.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CartComponent } from './cart/cart.component';
@@ -39,7 +40,7 @@ const routes: Routes = [
     {path:'items', component: ItemsComponent},
     {path:'nav', component: NavComponent},
     {path:'cartlist', component: CartlistComponent},
-
+    {path:'about-ceo', component:AboutCeoComponent}
   ]},
   {path:'',component:LoginComponent},
   {path:'**',component:PagenotfoundComponent}
@@ -50,4 +51,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-6
