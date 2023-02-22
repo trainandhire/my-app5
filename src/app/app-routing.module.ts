@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './authentication.guard';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CartComponent } from './cart/cart.component';
+import { CartlistComponent } from './cartlist/cartlist.component';
 import { CounterComponent } from './counter/counter.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateVehicleComponent } from './create-vehicle/create-vehicle.component';
@@ -10,7 +11,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { HomeComponent } from './home/home.component';
+import { ItemsComponent } from './items/items.component';
 import { LoginComponent } from './login/login.component';
+import { NavComponent } from './nav/nav.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParentComponent } from './parent/parent.component';
 import { PhoneComponent } from './phone/phone.component';
@@ -32,7 +35,11 @@ const routes: Routes = [
     {path:'vehicle-details/:id', component: VehicleDetailsComponent},
     {path:'edit-vehicle/:id', component: CreateVehicleComponent},
     {path:'parent', component:ParentComponent},
-    {path:'counter', component:CounterComponent}
+    {path:'counter', component:CounterComponent},
+    {path:'items', component: ItemsComponent},
+    {path:'nav', component: NavComponent},
+    {path:'cartlist', component: CartlistComponent},
+
   ]},
   {path:'',component:LoginComponent},
   {path:'**',component:PagenotfoundComponent}
