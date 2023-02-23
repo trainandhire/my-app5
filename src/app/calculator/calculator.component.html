@@ -1,6 +1,8 @@
 
 <h1>Calculator</h1>
 
+<!-- <p>{{user | json}}</p> -->
+
 <label>Number 1:</label>
 <input type="number" [(ngModel)]="number1">
 <br>
@@ -294,7 +296,7 @@ ng g c cartlist
 
 ng g s common
 
-
+<!-- 
 Module communciation:
 ---------------------
 
@@ -310,4 +312,27 @@ Module communciation:
         2) export the components from feature module
         3) import the feature module in app module.
 
-    
+    2) Lazy Loading:
+    ----------------
+
+        1) create feature module with routing module. ( ng g m contactus --routing=true )
+        2) configure component routes in feature routing module.
+        3) configure lazy loading route in app module. (copy from angular.io)
+
+            {
+                path: 'contactus',
+                loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactusModule)
+            } 
+
+    3) Pre Loading:
+    ----------------
+
+            Download all lazy loading modules 
+              immedialty after completion of eager loading.
+
+        Implementation: app-routing.module.ts
+        ---------------
+
+        RouterModule.forRoot(routes, {preloadingStrategy:PreloadAllModules}  )
+
+    -->

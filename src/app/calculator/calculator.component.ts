@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent {
 
+  // public user:any = {name:'asdf',age:90}
+
   public number1:number = 0;
   public number2:number = 0;
   public result:number = 0;
