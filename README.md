@@ -1,3 +1,5 @@
+cp, cd, cd, ca, cv
+
 
 1) Custom Pipe:
 ---------------
@@ -61,3 +63,19 @@
 
         public phones:Phone[] = [];
         
+
+4) Custom API/ mock json/ mock data/ dummy data:
+--------------------------------------------------
+
+    1) create a json file in assets
+
+        users.json
+
+    2) create mock data in json file
+
+    3) Do api get call to json file
+
+        this._httpClient.get("/assets/users.json");
+
+
+5) 

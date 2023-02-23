@@ -28,6 +28,7 @@ import { CartlistComponent } from './cartlist/cartlist.component';
 import { AboutusModule } from './aboutus/aboutus.module';
 import { PricePipe } from './price.pipe';
 import { ImpDirective } from './imp.directive';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ImpDirective } from './imp.directive';
     CartlistComponent,
     PricePipe,
     ImpDirective,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

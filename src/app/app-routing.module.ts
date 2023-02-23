@@ -18,6 +18,7 @@ import { NavComponent } from './nav/nav.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParentComponent } from './parent/parent.component';
 import { PhoneComponent } from './phone/phone.component';
+import { UsersComponent } from './users/users.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 
@@ -44,7 +45,8 @@ const routes: Routes = [
     {
       path: 'contactus',
       loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactusModule)
-    }
+    },
+    {path:'users', component: UsersComponent}
   ]},
   {path:'',component:LoginComponent},
   {path:'**',component:PagenotfoundComponent}
