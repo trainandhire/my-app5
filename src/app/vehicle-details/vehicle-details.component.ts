@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Vehicle } from '../vehicle';
 import { VehicleService } from '../vehicle.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { VehicleService } from '../vehicle.service';
 })
 export class VehicleDetailsComponent implements OnInit {
 
-  public vehicle:any = {};
+  public vehicle:Vehicle = <Vehicle>{};
 
   constructor(private _activatedRoute:ActivatedRoute, private _vehicleService:VehicleService) {
 
@@ -17,7 +18,7 @@ export class VehicleDetailsComponent implements OnInit {
       (data:any)=>{
 
         this._vehicleService.getVehicleDetails(data.id).subscribe(
-          (data:any)=>{
+          (data:Vehicle)=>{
             this.vehicle = data;
           }
         )
