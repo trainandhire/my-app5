@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './items/items.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
+import { NotifyGuard } from './notify.guard';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParentComponent } from './parent/parent.component';
 import { PhoneComponent } from './phone/phone.component';
@@ -32,8 +33,8 @@ const routes: Routes = [
     {path:'cart',component:CartComponent},
     {path:'phone',component:PhoneComponent},
     {path:'vehicle', component: VehicleComponent},
-    {path:'create-vehicle', component: CreateVehicleComponent},
-    {path:'create-user', component: CreateUserComponent},
+    {path:'create-vehicle', component: CreateVehicleComponent, canDeactivate:[NotifyGuard]},
+    {path:'create-user', component: CreateUserComponent, canDeactivate:[NotifyGuard]},
     {path:'vehicle-details/:id', component: VehicleDetailsComponent},
     {path:'edit-vehicle/:id', component: CreateVehicleComponent},
     {path:'parent', component:ParentComponent},

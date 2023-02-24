@@ -78,4 +78,20 @@ cp, cd, cd, ca, cv
         this._httpClient.get("/assets/users.json");
 
 
-5) 
+Notify Guard:
+-------------
+
+    1) Create:
+    ----------
+
+        ng g g notify
+
+    2) implement:
+    -------------
+
+        return confirm("______");
+
+    3) apply:
+    ---------
+
+        {path:'create-user', canDeactivate:[NotifyGuard] }

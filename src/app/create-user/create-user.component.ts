@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -12,7 +12,7 @@ export class CreateUserComponent{
     name: new FormControl("", [Validators.required,Validators.minLength(3), Validators.maxLength(10)]),
     age: new FormControl("", [Validators.required, Validators.min(0), Validators.max(100)]),
     phone: new FormControl(),
-    email: new FormControl("", [Validators.required, Validators.email]),
+    email: new FormControl("", [Validators.required, Validators.email, emailDomain]),
     address: new FormGroup({
       state: new FormControl("",[Validators.required]),
       pin: new FormControl()
@@ -50,6 +50,18 @@ export class CreateUserComponent{
       this.userForm.reset();
     }
 
+  }
+
+}
+
+
+function emailDomain(control: AbstractControl): ValidationErrors | null{
+
+  if( control.value.indexOf("@capgemini.com") == -1 ){
+    return {"emailDomain":true};
+  }
+  else{
+    return null;
   }
 
 }
